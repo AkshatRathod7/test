@@ -592,6 +592,18 @@ body {
     box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
     text-transform: uppercase;
     letter-spacing: 1px;
+    max-width: 100%;
+    /* Prevent overflow */
+    text-align: center;
+    /* Center text if it wraps */
+    justify-content: center;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .cta-button:hover {
@@ -928,6 +940,62 @@ body {
 
     .proof-number {
         font-size: 3rem;
+    }
+}
+
+/* Mobile specific fixes */
+@media (max-width: 480px) {
+    .cta-button {
+        padding: 1rem 1.5rem !important;
+        /* Smaller padding */
+        font-size: 0.95rem !important;
+        /* Smaller font */
+        width: 100%;
+        /* Full width */
+        flex-direction: column;
+        /* Stack if needed */
+        gap: 0.8rem;
+        border-radius: 50px;
+        white-space: normal;
+        /* Allow text wrapping */
+        height: auto;
+        text-align: center;
+    }
+
+    .cta-title,
+    .section-title {
+        font-size: 2rem !important;
+        /* Smaller titles */
+        line-height: 1.2;
+    }
+
+    .hero-title {
+        font-size: 2.2rem !important;
+    }
+
+    .proof-number {
+        font-size: 3.5rem !important;
+    }
+
+    .container {
+        padding: 0 1.2rem;
+        /* Ensure side spacing */
+    }
+
+    .video-placeholder p {
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .play-icon {
+        width: 24px;
+        height: 24px;
     }
 }
 
