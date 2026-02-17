@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="End your brand deal dependency and scale to 3-5 lacs monthly revenue with our C-C-C framework">
+    <title>Scale Your Business Without Brand Deals | DreamSVin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ===================================
+   RESET & BASE STYLES
+   =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - More sophisticated */
+            --color-black: #0f0f0f;
+            --color-dark: #1a1a1a;
+            --color-darker: #141414;
+            --color-orange: #ff6b35;
+            --color-orange-muted: #e85a28;
+            --color-yellow: #ffa726;
+            --color-yellow-soft: #ffb74d;
+            --color-white: #ffffff;
+            --color-gray: #b0b0b0;
+            --color-gray-light: #d0d0d0;
+            --color-text: #e8e8e8;
+
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2.5rem;
+            --spacing-xl: 4rem;
+            --spacing-2xl: 6rem;
+
+            /* Effects */
+            --radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-black);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* ===================================
+   HERO SECTION - More Natural
+   =================================== */
+        .hero {
+            padding: var(--spacing-xl) 0 var(--spacing-2xl);
+            background: linear-gradient(to bottom, var(--color-darker) 0%, var(--color-black) 100%);
+        }
+
+        .hero-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-orange);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-title .accent {
+            color: var(--color-orange);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--color-gray-light);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .pain-points {
+            max-width: 650px;
+            margin: 0 auto var(--spacing-xl);
+        }
+
+        .pain-point {
+            font-size: 1.05rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text);
+        }
+
+        .pain-point strong {
+            color: var(--color-yellow-soft);
+            font-weight: 600;
+        }
+
+        .divider {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--color-gray);
+            margin: var(--spacing-md) 0;
+        }
+
+        /* Value Proposition - Cleaner */
+        .value-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+        }
+
+        .value-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .value-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .value-box strong {
+            color: var(--color-white);
+            font-weight: 600;
+        }
+
+        .highlight-text {
+            color: var(--color-yellow);
+        }
+
+        .ccc-framework {
+            color: var(--color-orange);
+            font-weight: 700;
+        }
+
+        /* Benefits - Simpler */
+        .benefits {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-xl);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) 0;
+            font-size: 1rem;
+        }
+
+        .benefit-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-orange);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Video Section - Natural */
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: var(--color-dark);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 107, 53, 0.15);
+        }
+
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .video-placeholder:hover .play-button {
+            transform: scale(1.1);
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background: var(--color-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .play-icon {
+            width: 28px;
+            height: 28px;
+            color: white;
+            margin-left: 3px;
+        }
+
+        .video-placeholder p {
+            font-size: 1.1rem;
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        .video-subtitle {
+            font-size: 0.9rem !important;
+            color: var(--color-gray) !important;
+            font-weight: 400 !important;
+        }
+
+        /* ===================================
+   PHOTO SECTION - NEW
+   =================================== */
+        .photo-section {
+            padding: var(--spacing-2xl) 0;
+            background: var(--color-darker);
+        }
+
+        .photo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .photo-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 167, 38, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .photo-placeholder {
+            text-align: center;
+            color: var(--color-gray);
+        }
+
+        .photo-placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: var(--spacing-sm);
+            opacity: 0.3;
+        }
+
+        .photo-placeholder p {
+            font-size: 0.95rem;
+        }
+
+        .photo-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.3;
+        }
+
+        .photo-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-gray-light);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .photo-text .signature {
+            margin-top: var(--spacing-md);
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--color-orange);
+            font-weight: 600;
+        }
+
+        /* ===================================
+   SOCIAL PROOF - Cleaner
+   =================================== */
+        .social-proof {
+            padding: var(--spacing-2xl) 0;
+            background: var(--color-black);
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .proof-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .proof-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-orange);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .proof-text {
+            font-size: 0.95rem;
+            color: var(--color-gray-light);
+            line-height: 1.6;
+        }
+
+        /* ===================================
+   CTA SECTION - More Natural
+   =================================== */
+        .cta-section {
+            padding: var(--spacing-2xl) 0;
+            background: var(--color-darker);
+            text-align: center;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.3;
+        }
+
+        .cta-benefits {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .cta-benefit {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+        }
+
+        .cta-benefit:nth-child(1) {
+            color: var(--color-orange);
+        }
+
+        .cta-benefit:nth-child(2) {
+            color: var(--color-yellow);
+        }
+
+        .cta-benefit:nth-child(3) {
+            color: var(--color-yellow-soft);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: var(--color-orange);
+            color: white;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: var(--color-orange-muted);
+            transform: translateY(-2px);
+        }
+
+        .arrow-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ===================================
+   CONSULTATION DETAILS
+   =================================== */
+        .consultation-details {
+            padding: var(--spacing-2xl) 0;
+            background: var(--color-black);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.3;
+        }
+
+        .details-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--color-orange);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .detail-header {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .detail-number {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-orange);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .detail-header h3 {
+            font-size: 1.15rem;
+            color: var(--color-white);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .detail-description {
+            color: var(--color-gray-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding-left: calc(1.5rem + var(--spacing-md));
+        }
+
+        /* ===================================
+   TESTIMONIALS
+   =================================== */
+        .testimonials-grid {
+            padding: var(--spacing-2xl) 0;
+            background: var(--color-darker);
+        }
+
+        .testimonial-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .testimonial-box {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial-placeholder {
+            color: var(--color-gray);
+            font-size: 1rem;
+        }
+
+        /* ===================================
+   ABOUT SECTION
+   =================================== */
+        .about-section {
+            padding: var(--spacing-2xl) 0;
+            background: var(--color-black);
+        }
+
+        .about-content {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .about-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--color-orange);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .about-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-yellow);
+            margin-bottom: var(--spacing-xl);
+            font-weight: 500;
+        }
+
+        .about-story p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text);
+        }
+
+        .dependency-list {
+            background: rgba(255, 107, 53, 0.05);
+            border-left: 3px solid var(--color-orange);
+            padding: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .dependency-list p {
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-md);
+            position: relative;
+        }
+
+        .dependency-list p::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-yellow);
+        }
+
+        .mission-statement {
+            font-size: 1.15rem;
+            color: var(--color-yellow-soft);
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-md);
+            background: rgba(255, 167, 38, 0.05);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 167, 38, 0.2);
+            font-weight: 500;
+        }
+
+        /* ===================================
+   FOOTER
+   =================================== */
+        .footer {
+            padding: var(--spacing-lg) 0;
+            background: var(--color-darker);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer p {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+        }
+
+        /* ===================================
+   RESPONSIVE
+   =================================== */
+        @media (max-width: 768px) {
+            .photo-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .photo-image {
+                order: -1;
+            }
+
+            .detail-description {
+                padding-left: 0;
+                margin-top: var(--spacing-sm);
+            }
+
+            .detail-header {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+
+        ::selection {
+            background: var(--color-orange);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-header">
+                <span class="hero-tag">For Creators, Coaches & Founders</span>
+                <h1 class="hero-title">
+                    Stop Depending on <span class="accent">Brand Deals</span> and Build Real, Sustainable Revenue
+                </h1>
+                <p class="hero-subtitle">
+                    A proven system to 10x your visibility and scale to 3-5 lacs monthly—without burning money on ads or
+                    chasing viral content.
+                </p>
+            </div>
+
+            <div class="pain-points">
+                <p class="pain-point"><strong>Creators,</strong> are you tired of relying on brand deals for your
+                    monthly revenue?</p>
+                <p class="divider">&</p>
+                <p class="pain-point"><strong>Coaches,</strong> are you tired of implementing strategies to make 3-5
+                    lacs a month?</p>
+            </div>
+
+            <div class="value-box">
+                <p>Let's build a system that ends your <strong>Dependency on Brands, followers, and any
+                        platforms</strong></p>
+                <p>And still <strong>10x your Visibility & credibility</strong> to make <strong
+                        class="highlight-text">3-5 lacs a month effortlessly</strong></p>
+                <p>with my <strong class="ccc-framework">C-C-C framework.</strong></p>
+            </div>
+
+            <div class="benefits">
+                <div class="benefit-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Without depending on brand deals</span>
+                </div>
+                <div class="benefit-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Without burning money on marketing agencies</span>
+                </div>
+                <div class="benefit-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Without constantly running behind viral content</span>
+                </div>
+            </div>
+
+            <!-- Video Section -->
+            <div class="video-wrapper" style="margin-top: 3rem;">
+                <div class="video-container">
+                    <!-- Replace with your actual video URL -->
+                    <div class="video-placeholder" onclick="playVideo(this)">
+                        <div class="play-button">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <p>Watch Isha Explain the C-C-C Framework</p>
+                        <p class="video-subtitle">See how it works in under 5 minutes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Section - NEW -->
+    <section class="photo-section">
+        <div class="container">
+            <div class="photo-content">
+                <div class="photo-image">
+                    <!-- Replace this placeholder with actual image -->
+                    <div class="photo-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <p>Add your professional photo here</p>
+                    </div>
+                    <!-- To add your photo, use: <img src="your-photo.jpg" alt="Isha" style="width: 100%; height: 100%; object-fit: cover;"> -->
+                </div>
+                <div class="photo-text">
+                    <h2>Building Real Businesses, Not Just Followers</h2>
+                    <p>After working with hundreds of founders, creators, and coaches, I noticed a pattern: everyone was
+                        growing, but almost everyone was dependent.</p>
+                    <p>That's when I created the <strong style="color: var(--color-orange);">Triple C
+                            Framework</strong>—a system built on Content, Collaboration, and Community to help you grow
+                        without depending on just one source.</p>
+                    <p>Today, I help creators and coaches build sustainable businesses that don't rely on brand deals,
+                        viral content, or expensive ads.</p>
+                    <p class="signature">— Isha</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <div class="proof-number">45+</div>
+                    <p class="proof-text">Creators ended their brand deal dependency & scaled to 5-6 lacs monthly
+                        revenue</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-number">75+</div>
+                    <p class="proof-text">Coaches & Founders scaled their business to 5 lacs & above with C-C-C</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-number">1000+</div>
+                    <p class="proof-text">A Community of 1000+ members who are scaling a crazy top 5% business</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">You're Just 1 Consultation Call Away From Transforming Your</h2>
+            <div class="cta-benefits">
+                <p class="cta-benefit">Visibility</p>
+                <p class="cta-benefit">Credibility</p>
+                <p class="cta-benefit">Monthly Revenue</p>
+            </div>
+            <button class="cta-button" onclick="scrollToConsultation()">
+                Book Your Free Consultation Call
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Consultation Details Section -->
+    <section class="consultation-details">
+        <div class="container">
+            <h2 class="section-title">What We'll Cover in Your Consultation Call</h2>
+
+            <div class="details-list">
+                <div class="detail-item">
+                    <div class="detail-header">
+                        <div class="detail-number">01</div>
+                        <h3>Understand you and your business clearly</h3>
+                    </div>
+                    <p class="detail-description">What you do, who you help, your experience, and where you feel stuck
+                        right now.</p>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-header">
+                        <div class="detail-number">02</div>
+                        <h3>Analyze your niche and market</h3>
+                    </div>
+                    <p class="detail-description">Where the saturation is, what people already know, and why growth
+                        feels slow or stuck.</p>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-header">
+                        <div class="detail-number">03</div>
+                        <h3>Position you in a stronger way</h3>
+                    </div>
+                    <p class="detail-description">So you don't look generic, and people clearly see why they should
+                        choose you.</p>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-header">
+                        <div class="detail-number">04</div>
+                        <h3>Identify the right collaborations</h3>
+                    </div>
+                    <p class="detail-description">Forward and backward partners who can help you grow faster and get
+                        seen more.</p>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-header">
+                        <div class="detail-number">05</div>
+                        <h3>Map a simple growth plan</h3>
+                    </div>
+                    <p class="detail-description">An end-to-end roadmap using Content, Collaboration, and Community to
+                        build stable income and scale to 3–5 lakhs a month.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section class="testimonials-grid">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-boxes">
+                <div class="testimonial-box">
+                    <div class="testimonial-placeholder">Testimonial 1</div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-placeholder">Testimonial 2</div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-placeholder">Testimonial 3</div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-placeholder">Testimonial 4</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="about-title">Hi I am Isha</h2>
+                <p class="about-subtitle">Founder of DreamSVin & Bombay Networking Circle</p>
+
+                <div class="about-story">
+                    <p>After graduating, I believed I would either enter the pharmacy space or eventually help run my
+                        father's surgical business.</p>
+                    <p><strong>But life pulled me in a different direction.</strong></p>
+
+                    <p>I entered the world of business development and soon started working closely with JITO, one of
+                        the largest business foundations in the Jain community.</p>
+                    <p>Over time, I led initiatives nationally and internationally and began working with founders
+                        across industries.</p>
+
+                    <p>Every month, while consulting hundreds of startups, creators, and business owners, I started
+                        noticing a clear pattern.</p>
+                    <p><strong class="highlight-text">Everyone was growing, but almost everyone was dependent.</strong>
+                    </p>
+
+                    <div class="dependency-list">
+                        <p>Creators were surviving on brand deals.</p>
+                        <p>Coaches were chasing followers or burning money on ads.</p>
+                        <p>Founders were stuck between content, ads, and influencer marketing, with no real stability.
+                        </p>
+                    </div>
+
+                    <p><strong>That's when I realised the real problem wasn't growth, it was dependency.</strong></p>
+                    <p>And that realisation led to the creation of the <strong class="ccc-framework">Triple C
+                            framework</strong>, built on Content, Collaboration, and Community, to help people grow
+                        without depending on just one source.</p>
+
+                    <p class="mission-statement">Today, I'm on a mission to teach real networking, not the noisy,
+                        transactional kind, but the kind that builds trust, ownership, and long-term results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section" id="consultation">
+        <div class="container">
+            <h2 class="cta-title">Ready to Transform Your Business?</h2>
+            <p style="color: var(--color-gray-light); margin-bottom: 2rem; font-size: 1.1rem;">Book your free
+                consultation call today and discover how the C-C-C framework can help you scale to 3-5 lacs monthly
+                revenue</p>
+            <button class="cta-button" style="padding: 1.2rem 3rem; font-size: 1.1rem;">
+                Book Your Free Consultation Now
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 DreamSVin & Bombay Networking Circle. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll to consultation section
+        function scrollToConsultation() {
+            const consultationSection = document.getElementById('consultation');
+            if (consultationSection) {
+                consultationSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Video play function
+        function playVideo(placeholder) {
+            const videoContainer = placeholder.parentElement;
+            const videoUrl = 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1';
+
+            // Replace YOUR_VIDEO_ID with your actual video ID
+            // videoContainer.innerHTML = '<iframe src="' + videoUrl + '" allowfullscreen allow="autoplay"></iframe>';
+
+            alert('Add your video URL in the playVideo() function.\n\nFor YouTube: https://www.youtube.com/embed/YOUR_VIDEO_ID\nFor Vimeo: https://player.vimeo.com/video/YOUR_VIDEO_ID');
+        }
+
+        // Simple fade-in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fade in elements
+            const elements = document.querySelectorAll('.proof-card, .detail-item, .testimonial-box');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
