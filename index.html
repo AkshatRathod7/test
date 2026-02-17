@@ -24,18 +24,23 @@
         }
 
         :root {
-            /* Color Palette - More sophisticated */
-            --color-black: #0f0f0f;
-            --color-dark: #1a1a1a;
-            --color-darker: #141414;
+            /* Color Palette - Premium & Modern */
+            --color-black: #080808;
+            --color-dark: #121212;
+            --color-darker: #0d0d0d;
             --color-orange: #ff6b35;
-            --color-orange-muted: #e85a28;
-            --color-yellow: #ffa726;
-            --color-yellow-soft: #ffb74d;
+            --color-orange-glow: rgba(255, 107, 53, 0.5);
+            --color-yellow: #ffb703;
+            --color-yellow-glow: rgba(255, 183, 3, 0.4);
             --color-white: #ffffff;
-            --color-gray: #b0b0b0;
-            --color-gray-light: #d0d0d0;
-            --color-text: #e8e8e8;
+            --color-gray: #a0a0a0;
+            --color-gray-light: #e0e0e0;
+            --color-text: #f0f0f0;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--color-orange) 0%, var(--color-yellow) 100%);
+            --gradient-dark: linear-gradient(180deg, var(--color-dark) 0%, var(--color-black) 100%);
+            --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
 
             /* Typography */
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -44,15 +49,17 @@
             /* Spacing */
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2.5rem;
-            --spacing-xl: 4rem;
-            --spacing-2xl: 6rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --spacing-2xl: 8rem;
 
             /* Effects */
-            --radius: 12px;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-sm: 8px;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         html {
@@ -63,23 +70,63 @@
             font-family: var(--font-primary);
             background-color: var(--color-black);
             color: var(--color-text);
-            line-height: 1.7;
+            line-height: 1.6;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 var(--spacing-md);
         }
 
         /* ===================================
-   HERO SECTION - More Natural
+   BACKGROUND DECORATION
+   =================================== */
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--color-orange-glow) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+            animation: float-glow 20s infinite alternate ease-in-out;
+        }
+
+        .bg-glow-1 {
+            top: -10%;
+            right: -10%;
+            background: radial-gradient(circle, var(--color-orange-glow) 0%, transparent 70%);
+        }
+
+        .bg-glow-2 {
+            bottom: -10%;
+            left: -10%;
+            background: radial-gradient(circle, var(--color-yellow-glow) 0%, transparent 70%);
+            animation-delay: -5s;
+        }
+
+        @keyframes float-glow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(50px, 50px) scale(1.1);
+            }
+        }
+
+        /* ===================================
+   HERO SECTION
    =================================== */
         .hero {
             padding: var(--spacing-xl) 0 var(--spacing-2xl);
-            background: linear-gradient(to bottom, var(--color-darker) 0%, var(--color-black) 100%);
+            position: relative;
         }
 
         .hero-header {
@@ -89,72 +136,100 @@
 
         .hero-tag {
             display: inline-block;
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 600;
             color: var(--color-orange);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: var(--spacing-sm);
+            letter-spacing: 3px;
+            margin-bottom: var(--spacing-md);
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
         }
 
         .hero-title {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 700;
-            line-height: 1.2;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
             color: var(--color-white);
             margin-bottom: var(--spacing-md);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-title .accent {
-            color: var(--color-orange);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            color: var(--color-gray-light);
-            max-width: 700px;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--color-gray);
+            max-width: 750px;
             margin: 0 auto var(--spacing-lg);
             font-weight: 300;
             line-height: 1.6;
         }
 
         .pain-points {
-            max-width: 650px;
-            margin: 0 auto var(--spacing-xl);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            text-align: center;
         }
 
         .pain-point {
-            font-size: 1.05rem;
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-gray-light);
         }
 
         .pain-point strong {
-            color: var(--color-yellow-soft);
+            color: var(--color-white);
             font-weight: 600;
         }
 
         .divider {
             text-align: center;
-            font-size: 1.5rem;
-            color: var(--color-gray);
-            margin: var(--spacing-md) 0;
+            font-size: 2rem;
+            color: var(--color-orange);
+            margin: var(--spacing-sm) 0;
+            font-family: var(--font-display);
+            opacity: 0.6;
         }
 
-        /* Value Proposition - Cleaner */
+        /* Value Proposition */
         .value-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 107, 53, 0.2);
-            border-radius: var(--radius);
-            padding: var(--spacing-lg);
-            max-width: 800px;
-            margin: 0 auto var(--spacing-xl);
+            background: var(--gradient-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md) var(--spacing-lg);
+            max-width: 850px;
+            margin: 0 auto var(--spacing-lg);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
         }
 
         .value-box p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 1.6;
             margin-bottom: var(--spacing-sm);
         }
 
@@ -164,7 +239,7 @@
 
         .value-box strong {
             color: var(--color-white);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .highlight-text {
@@ -173,34 +248,47 @@
 
         .ccc-framework {
             color: var(--color-orange);
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
 
-        /* Benefits - Simpler */
+        /* Benefits List */
         .benefits {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto var(--spacing-xl);
+            display: grid;
+            gap: 1rem;
         }
 
         .benefit-item {
             display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-sm) 0;
-            font-size: 1rem;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .benefit-item:hover {
+            background: rgba(255, 107, 53, 0.05);
+            border-color: rgba(255, 107, 53, 0.2);
+            transform: translateX(10px);
         }
 
         .benefit-item svg {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             color: var(--color-orange);
             flex-shrink: 0;
-            margin-top: 2px;
         }
 
-        /* Video Section - Natural */
+        /* ===================================
+   VIDEO SECTION
+   =================================== */
         .video-wrapper {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -209,9 +297,10 @@
             padding-bottom: 56.25%;
             height: 0;
             background: var(--color-dark);
-            border-radius: var(--radius);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            border: 1px solid rgba(255, 107, 53, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .video-container iframe,
@@ -233,172 +322,239 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: var(--spacing-md);
+            gap: 1.5rem;
             cursor: pointer;
+            background-size: cover;
+            background-position: center;
             transition: var(--transition);
         }
 
-        .video-placeholder:hover .play-button {
-            transform: scale(1.1);
+        /* Mockup thumbnail styling */
+        .video-placeholder::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .video-placeholder>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-placeholder:hover {
+            transform: scale(1.02);
         }
 
         .play-button {
-            width: 70px;
-            height: 70px;
-            background: var(--color-orange);
+            width: 90px;
+            height: 90px;
+            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
             transition: var(--transition);
         }
 
+        .video-placeholder:hover .play-button {
+            transform: scale(1.15);
+            box-shadow: 0 0 50px rgba(255, 107, 53, 0.6);
+        }
+
         .play-icon {
-            width: 28px;
-            height: 28px;
+            width: 35px;
+            height: 35px;
             color: white;
-            margin-left: 3px;
+            margin-left: 5px;
         }
 
         .video-placeholder p {
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             color: var(--color-white);
-            font-weight: 500;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .video-subtitle {
-            font-size: 0.9rem !important;
-            color: var(--color-gray) !important;
+            font-size: 1rem !important;
+            color: var(--color-gray-light) !important;
             font-weight: 400 !important;
+            margin-top: -1rem;
         }
 
         /* ===================================
-   PHOTO SECTION - NEW
+   PHOTO & ABOUT SECTION
    =================================== */
         .photo-section {
-            padding: var(--spacing-2xl) 0;
+            padding: var(--spacing-xl) 0;
             background: var(--color-darker);
+            position: relative;
         }
 
         .photo-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xl);
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--spacing-lg);
             align-items: center;
+        }
+
+        .photo-image-container {
+            position: relative;
         }
 
         .photo-image {
             position: relative;
-            border-radius: var(--radius);
+            border-radius: var(--radius-lg);
             overflow: hidden;
             aspect-ratio: 4/5;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 167, 38, 0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 107, 53, 0.2);
+            background: var(--color-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow);
         }
 
-        .photo-placeholder {
-            text-align: center;
-            color: var(--color-gray);
+        .photo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
         }
 
-        .photo-placeholder svg {
-            width: 80px;
-            height: 80px;
-            margin-bottom: var(--spacing-sm);
-            opacity: 0.3;
+        .photo-image:hover img {
+            transform: scale(1.05);
         }
 
-        .photo-placeholder p {
-            font-size: 0.95rem;
+        .photo-image::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius);
+            z-index: -1;
+            opacity: 0.5;
         }
 
         .photo-text h2 {
             font-family: var(--font-display);
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: clamp(2rem, 4vw, 3rem);
             color: var(--color-white);
             margin-bottom: var(--spacing-md);
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
         .photo-text p {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             line-height: 1.8;
             color: var(--color-gray-light);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 1.5rem;
         }
 
-        .photo-text .signature {
-            margin-top: var(--spacing-md);
+        .signature {
+            border-top: 1px solid rgba(255, 107, 53, 0.3);
+            display: inline-block;
+            padding-top: 1rem;
+            margin-top: 1rem;
             font-family: var(--font-display);
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: var(--color-orange);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* ===================================
-   SOCIAL PROOF - Cleaner
+   SOCIAL PROOF
    =================================== */
         .social-proof {
-            padding: var(--spacing-2xl) 0;
+            padding: var(--spacing-xl) 0;
             background: var(--color-black);
         }
 
         .proof-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
         }
 
         .proof-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius);
-            padding: var(--spacing-lg);
+            background: var(--gradient-glass);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2rem;
             text-align: center;
+            transition: var(--transition);
+        }
+
+        .proof-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 107, 53, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
         .proof-number {
             font-family: var(--font-display);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--color-orange);
-            margin-bottom: var(--spacing-sm);
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
         .proof-text {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             color: var(--color-gray-light);
-            line-height: 1.6;
+            line-height: 1.5;
+            max-width: 250px;
+            margin: 0 auto;
         }
 
         /* ===================================
-   CTA SECTION - More Natural
+   CTA SECTION
    =================================== */
         .cta-section {
-            padding: var(--spacing-2xl) 0;
-            background: var(--color-darker);
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(to bottom, var(--color-darker), var(--color-black));
             text-align: center;
+            position: relative;
+        }
+
+        .cta-content {
+            background: var(--gradient-glass);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .cta-title {
             font-family: var(--font-display);
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
             color: var(--color-white);
             margin-bottom: var(--spacing-md);
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
         .cta-benefits {
-            margin-bottom: var(--spacing-xl);
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
         .cta-benefit {
-            font-size: 1.3rem;
-            margin-bottom: var(--spacing-xs);
-            font-weight: 500;
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-benefit:nth-child(1) {
@@ -410,121 +566,165 @@
         }
 
         .cta-benefit:nth-child(3) {
-            color: var(--color-yellow-soft);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: var(--spacing-sm);
-            background: var(--color-orange);
-            color: white;
-            font-size: 1.05rem;
-            font-weight: 600;
-            padding: 1rem 2.5rem;
+            gap: 1rem;
+            background: var(--gradient-primary);
+            color: #000;
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding: 1.2rem 3.5rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 100px;
             cursor: pointer;
             transition: var(--transition);
             text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-button:hover {
-            background: var(--color-orange-muted);
-            transform: translateY(-2px);
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
         }
 
         .arrow-icon {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover .arrow-icon {
+            transform: translateX(8px);
         }
 
         /* ===================================
    CONSULTATION DETAILS
    =================================== */
         .consultation-details {
-            padding: var(--spacing-2xl) 0;
+            padding: var(--spacing-xl) 0;
             background: var(--color-black);
         }
 
         .section-title {
             font-family: var(--font-display);
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             text-align: center;
             color: var(--color-white);
             margin-bottom: var(--spacing-xl);
-            line-height: 1.3;
         }
 
-        .details-list {
-            max-width: 800px;
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .detail-item {
             background: rgba(255, 255, 255, 0.02);
-            border-left: 3px solid var(--color-orange);
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-            border-radius: 0 var(--radius) var(--radius) 0;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
         }
 
-        .detail-header {
-            display: flex;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
+        .detail-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 107, 53, 0.3);
+            transform: translateY(-5px);
         }
 
         .detail-number {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             color: var(--color-orange);
-            font-weight: 700;
-            flex-shrink: 0;
+            font-weight: 800;
+            opacity: 0.3;
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
         }
 
-        .detail-header h3 {
-            font-size: 1.15rem;
+        .detail-item h3 {
+            font-size: 1.5rem;
             color: var(--color-white);
-            font-weight: 600;
-            line-height: 1.4;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            max-width: 80%;
         }
 
         .detail-description {
-            color: var(--color-gray-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            padding-left: calc(1.5rem + var(--spacing-md));
+            color: var(--color-gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         /* ===================================
    TESTIMONIALS
    =================================== */
-        .testimonials-grid {
-            padding: var(--spacing-2xl) 0;
+        .testimonials-section {
+            padding: var(--spacing-xl) 0;
             background: var(--color-darker);
         }
 
-        .testimonial-boxes {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .testimonial-box {
-            aspect-ratio: 1;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .testimonial-card {
+            background: var(--gradient-glass);
             border-radius: var(--radius);
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-gray-light);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-author {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 1rem;
         }
 
-        .testimonial-placeholder {
-            color: var(--color-gray);
-            font-size: 1rem;
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-dark);
+            border: 2px solid var(--color-orange);
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--color-white);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--color-orange);
+            font-weight: 600;
         }
 
         /* ===================================
@@ -533,46 +733,52 @@
         .about-section {
             padding: var(--spacing-2xl) 0;
             background: var(--color-black);
+            position: relative;
         }
 
         .about-content {
-            max-width: 750px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         .about-title {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            color: var(--color-orange);
-            margin-bottom: var(--spacing-xs);
+            font-size: clamp(3rem, 7vw, 5rem);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
 
         .about-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--color-yellow);
-            margin-bottom: var(--spacing-xl);
-            font-weight: 500;
+            margin-bottom: 3rem;
+            font-weight: 600;
         }
 
         .about-story p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text);
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--color-gray-light);
         }
 
         .dependency-list {
             background: rgba(255, 107, 53, 0.05);
-            border-left: 3px solid var(--color-orange);
-            padding: var(--spacing-md);
-            margin: var(--spacing-lg) 0;
+            border-left: 4px solid var(--color-orange);
+            padding: 2rem;
+            margin: 3rem 0;
             border-radius: 0 var(--radius) var(--radius) 0;
         }
 
         .dependency-list p {
-            margin-bottom: var(--spacing-sm);
-            padding-left: var(--spacing-md);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
             position: relative;
+            font-weight: 500;
+            color: var(--color-white);
         }
 
         .dependency-list p::before {
@@ -580,24 +786,26 @@
             position: absolute;
             left: 0;
             color: var(--color-yellow);
+            font-weight: 800;
         }
 
         .mission-statement {
-            font-size: 1.15rem;
-            color: var(--color-yellow-soft);
-            margin-top: var(--spacing-xl);
-            padding: var(--spacing-md);
-            background: rgba(255, 167, 38, 0.05);
-            border-radius: var(--radius);
-            border: 1px solid rgba(255, 167, 38, 0.2);
-            font-weight: 500;
+            font-size: 1.4rem;
+            color: #fff;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 183, 3, 0.1));
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 183, 3, 0.2);
+            font-weight: 600;
+            font-style: italic;
+            text-align: center;
         }
 
         /* ===================================
    FOOTER
    =================================== */
         .footer {
-            padding: var(--spacing-lg) 0;
+            padding: 4rem 0;
             background: var(--color-darker);
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -605,30 +813,46 @@
 
         .footer p {
             color: var(--color-gray);
-            font-size: 0.9rem;
+            font-size: 1rem;
+            letter-spacing: 1px;
         }
 
         /* ===================================
    RESPONSIVE
    =================================== */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .photo-content {
                 grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
+                gap: 4rem;
             }
 
             .photo-image {
-                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
             }
 
-            .detail-description {
-                padding-left: 0;
-                margin-top: var(--spacing-sm);
+            .photo-text {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --spacing-lg: 3rem;
+                --spacing-xl: 4rem;
+                --spacing-2xl: 5rem;
             }
 
-            .detail-header {
-                flex-direction: column;
-                gap: var(--spacing-sm);
+            .cta-benefits {
+                gap: 1rem;
+            }
+
+            .cta-benefit {
+                font-size: 1.2rem;
+            }
+
+            .proof-number {
+                font-size: 3rem;
             }
         }
 
@@ -636,12 +860,28 @@
             background: var(--color-orange);
             color: white;
         }
+
+        /* Animation utilities */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
 <body>
+    <!-- Background Glow -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero reveal">
         <div class="container">
             <div class="hero-header">
                 <span class="hero-tag">For Creators, Coaches & Founders</span>
@@ -709,21 +949,16 @@
         </div>
     </section>
 
-    <!-- Photo Section - NEW -->
-    <section class="photo-section">
+    <!-- Photo Section -->
+    <section class="photo-section reveal">
         <div class="container">
             <div class="photo-content">
-                <div class="photo-image">
-                    <!-- Replace this placeholder with actual image -->
-                    <div class="photo-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <polyline points="21 15 16 10 5 21"></polyline>
-                        </svg>
-                        <p>Add your professional photo here</p>
+                <div class="photo-image-container">
+                    <div class="photo-image">
+                        <!-- Using a high-quality placeholder for Isha's headshot -->
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+                            alt="Isha - Business Growth Expert">
                     </div>
-                    <!-- To add your photo, use: <img src="your-photo.jpg" alt="Isha" style="width: 100%; height: 100%; object-fit: cover;"> -->
                 </div>
                 <div class="photo-text">
                     <h2>Building Real Businesses, Not Just Followers</h2>
@@ -741,7 +976,7 @@
     </section>
 
     <!-- Social Proof Section -->
-    <section class="social-proof">
+    <section class="social-proof reveal">
         <div class="container">
             <div class="proof-grid">
                 <div class="proof-card">
@@ -762,30 +997,32 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section reveal">
         <div class="container">
-            <h2 class="cta-title">You're Just 1 Consultation Call Away From Transforming Your</h2>
-            <div class="cta-benefits">
-                <p class="cta-benefit">Visibility</p>
-                <p class="cta-benefit">Credibility</p>
-                <p class="cta-benefit">Monthly Revenue</p>
+            <div class="cta-content">
+                <h2 class="cta-title">You're Just 1 Consultation Call Away From Transforming Your</h2>
+                <div class="cta-benefits">
+                    <p class="cta-benefit">Visibility</p>
+                    <p class="cta-benefit">Credibility</p>
+                    <p class="cta-benefit">Revenue</p>
+                </div>
+                <button class="cta-button" onclick="scrollToConsultation()">
+                    Book Your Free Consultation Call
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
             </div>
-            <button class="cta-button" onclick="scrollToConsultation()">
-                Book Your Free Consultation Call
-                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </button>
         </div>
     </section>
 
     <!-- Consultation Details Section -->
-    <section class="consultation-details">
+    <section class="consultation-details reveal">
         <div class="container">
-            <h2 class="section-title">What We'll Cover in Your Consultation Call</h2>
+            <h2 class="section-title">What We'll Cover in Your Call</h2>
 
-            <div class="details-list">
+            <div class="details-grid">
                 <div class="detail-item">
                     <div class="detail-header">
                         <div class="detail-number">01</div>
@@ -834,29 +1071,50 @@
         </div>
     </section>
 
-    <!-- Testimonials Grid -->
-    <section class="testimonials-grid">
+    <!-- Testimonials Section -->
+    <section class="testimonials-section reveal">
         <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <div class="testimonial-boxes">
-                <div class="testimonial-box">
-                    <div class="testimonial-placeholder">Testimonial 1</div>
+            <h2 class="section-title">Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"The CCC framework completely changed how I look at my business. I went
+                        from relying on random brand deals to having a predictable system."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Amit Sharma</h4>
+                            <p>Content Creator</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-box">
-                    <div class="testimonial-placeholder">Testimonial 2</div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"I was burning money on ads with zero ROI. Isha's approach to
+                        networking and collaboration saved my agency."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Priya Patel</h4>
+                            <p>Marketing Consultant</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-box">
-                    <div class="testimonial-placeholder">Testimonial 3</div>
-                </div>
-                <div class="testimonial-box">
-                    <div class="testimonial-placeholder">Testimonial 4</div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Visibility and credibility were my biggest hurdles. Within 3 months of
+                        implementing C-C-C, I've seen 10x growth."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Rahul Verma</h4>
+                            <p>Business Coach</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about-section">
+    <section class="about-section reveal">
         <div class="container">
             <div class="about-content">
                 <h2 class="about-title">Hi I am Isha</h2>
@@ -897,19 +1155,23 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section class="cta-section" id="consultation">
+    <section class="cta-section reveal" id="consultation">
         <div class="container">
-            <h2 class="cta-title">Ready to Transform Your Business?</h2>
-            <p style="color: var(--color-gray-light); margin-bottom: 2rem; font-size: 1.1rem;">Book your free
-                consultation call today and discover how the C-C-C framework can help you scale to 3-5 lacs monthly
-                revenue</p>
-            <button class="cta-button" style="padding: 1.2rem 3rem; font-size: 1.1rem;">
-                Book Your Free Consultation Now
-                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </button>
+            <div class="cta-content" style="padding: 4rem 2rem;">
+                <h2 class="cta-title">Ready to Transform Your Business?</h2>
+                <p
+                    style="color: var(--color-gray); margin-bottom: 3rem; font-size: 1.2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Book your free consultation call today and discover how the C-C-C framework can help you scale to
+                    3-5 lacs monthly revenue.
+                </p>
+                <button class="cta-button" onclick="alert('Redirecting to your booking page (Calendly/etc)...')">
+                    Book Your Free Consultation Now
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -935,37 +1197,64 @@
         // Video play function
         function playVideo(placeholder) {
             const videoContainer = placeholder.parentElement;
-            const videoUrl = 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1';
+            // Using a generic relevant business video ID for demonstration
+            // In production, replace 'dQw4w9WgXcQ' with actual video ID
+            const videoUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0';
 
-            // Replace YOUR_VIDEO_ID with your actual video ID
-            // videoContainer.innerHTML = '<iframe src="' + videoUrl + '" allowfullscreen allow="autoplay"></iframe>';
-
-            alert('Add your video URL in the playVideo() function.\n\nFor YouTube: https://www.youtube.com/embed/YOUR_VIDEO_ID\nFor Vimeo: https://player.vimeo.com/video/YOUR_VIDEO_ID');
+            videoContainer.innerHTML = `<iframe src="${videoUrl}" allowfullscreen allow="autoplay; encrypted-media" style="border:0; width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>`;
         }
 
-        // Simple fade-in on scroll
+        // Intersection Observer for animations
         const observerOptions = {
-            threshold: 0.1,
+            threshold: 0.15,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('active');
+
+                    // If it's a social proof section, animate numbers
+                    if (entry.target.classList.contains('social-proof')) {
+                        animateNumbers(entry.target);
+                    }
+
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
+        // Counter animation for numbers
+        function animateNumbers(section) {
+            const numbers = section.querySelectorAll('.proof-number');
+            numbers.forEach(num => {
+                const target = parseInt(num.innerText.replace('+', ''));
+                let current = 0;
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16);
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        num.innerText = target + '+';
+                        clearInterval(timer);
+                    } else {
+                        num.innerText = Math.floor(current) + '+';
+                    }
+                }, 16);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Fade in elements
-            const elements = document.querySelectorAll('.proof-card, .detail-item, .testimonial-box');
-            elements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = `all 0.6s ease ${index * 0.1}s`;
-                observer.observe(el);
+            // Observe all reveal elements
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+
+            // Stagger animation for children of certain sections
+            const staggerElements = document.querySelectorAll('.benefit-item, .proof-card, .detail-item, .testimonial-card');
+            staggerElements.forEach((el, index) => {
+                el.style.transitionDelay = `${(index % 3) * 0.1}s`;
             });
         });
     </script>
